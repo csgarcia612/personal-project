@@ -1,5 +1,6 @@
 create table if not exists users(
 id serial primary key,
+auth0_id varchar not null,
 username varchar(30) not null,
 first_name varchar(30) not null,
 last_name varchar(30) not null,

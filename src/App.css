@@ -1,8 +1,27 @@
 .App {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  width: 100%;
+  height: 100%;
   background-image: url("./images/pawprint-background.png");
-  background-color: rgba(0, 147, 217, 0.25);
+  background-color: rgb(127, 189, 218);
+  background-attachment: fixed;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainDisplay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
 }
 
 header {
@@ -11,7 +30,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(37, 42, 49, 0.904);
+  background-color: rgb(37, 42, 49);
+  position: fixed;
+  z-index: 999;
 }
 
 .siteNameContainer {
@@ -35,7 +56,6 @@ header {
 
 .loginButton {
   height: 30px;
-  width: 75px;
   background-color: rgb(47, 255, 47);
   border-radius: 7px;
   font-size: 18px;
@@ -44,9 +64,12 @@ header {
   margin: 14px;
 }
 
-.loutoutButton {
+.loginButton:active {
+  box-shadow: #e0e0e0 1px 1px 0;
+}
+
+.logoutButton {
   height: 30px;
-  width: 95px;
   background-color: rgb(255, 0, 0);
   border-radius: 7px;
   color: white;
@@ -54,6 +77,10 @@ header {
   font-weight: bold;
   text-align: center;
   margin: 14px;
+}
+
+.logoutButton:active {
+  box-shadow: #e0e0e0 1px 1px 0;
 }
 
 .menu {
@@ -66,6 +93,7 @@ header {
   font-family: sans-serif;
   font-size: 22px;
   font-weight: bold;
+  letter-spacing: 2px;
   margin: 7px;
   color: white;
   text-decoration: none;
@@ -75,4 +103,398 @@ header {
   color: rgb(49, 145, 255);
   text-shadow: -0.5px 0.5px 1.5px rgb(255, 255, 255),
     1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.homepageContainer {
+  width: 100vw;
+  height: calc(100vh - 48px);
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+}
+
+.welcomeBannerContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+}
+
+svg {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  position: absolute;
+  z-index: 990;
+  justify-content: center;
+}
+
+path {
+  width: 100%;
+  fill: transparent;
+  overflow: visible;
+  z-index: 999;
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.curvedText {
+  font-size: 43.35px;
+  overflow: visible;
+  text-align: center;
+}
+
+.gifContainer {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-content: center;
+}
+
+.dogGif {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  display: flex;
+  position: relative;
+}
+
+.animalsContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  top: 60px;
+  padding-bottom: 15px;
+}
+
+.animalProfileLink {
+  text-decoration: none;
+}
+
+.singleAnimalContainer {
+  background-color: rgb(233, 196, 196);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  margin-top: 15px;
+}
+
+.animalImageContainer {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.miniAnimalImage {
+  width: 500px;
+  min-height: 500px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.animalInfoContainer {
+  width: 100%;
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.animalProfileContainer {
+  max-height: 90vh;
+  background-color: rgb(233, 196, 196);
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.animalProfilePicContainer {
+  min-height: 500px;
+  display: flex;
+  justify-items: center;
+}
+
+.profileAnimalImage {
+  width: 500px;
+  min-height: 500px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.animalProfileInfoContainer {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  text-align: left;
+  letter-spacing: 1px;
+  color: black;
+  padding: 10px;
+}
+
+.animalProfileInfoContainer > p {
+  margin-top: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.donationFormContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  top: 60px;
+}
+
+.donationContainer {
+  color: red;
+  font-size: 40px;
+}
+
+.contactFormContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  top: 60px;
+  padding-bottom: 15px;
+}
+
+.contactP1 {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
+  letter-spacing: 1.75px;
+  color: black;
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
+  margin-bottom: 4px;
+}
+
+.contactP2 {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
+  letter-spacing: 1.75px;
+  color: black;
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
+  margin-bottom: 8px;
+}
+
+.contactInput {
+  width: 600px;
+  font-family: "Muli", sans-serif;
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contactInputSubject {
+  width: 500px;
+  font-family: "Muli", sans-serif;
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contactInputMessage {
+  width: 600px;
+  height: 350px;
+  font-family: "Muli", sans-serif;
+  font-size: 18px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.submitBtnContainer {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.contactSubmitButton {
+  height: 35px;
+  background-color: rgb(26, 124, 236);
+  border-radius: 7px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0.75px 0.75px 0 #ffffff, 0.75px -0.75px 0 #ffffff,
+    -0.75px 0.75px 0 #ffffff, -0.75px -0.75px 0 #ffffff, 0.75px 0px 0 #ffffff,
+    0px 0.75px 0 #ffffff, -0.75px 0px 0 #ffffff, 0px -0.75px 0 #ffffff;
+}
+
+.contactSubmitButton:active {
+  box-shadow: #e0e0e0 1px 1px 0;
+}
+
+.userProfilePageContainer {
+  width: 100vw;
+  height: calc(100vh - 48px);
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+}
+
+.userProfilePageContainer2 {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.buttonsContainer {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+}
+
+.editSaveBtnContainer {
+  display: flex;
+  position: relative;
+}
+
+.editProfileBtn {
+  height: 30px;
+  background-color: rgb(47, 255, 47);
+  border-radius: 7px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 14px;
+}
+
+.editProfileBtn:active {
+  box-shadow: #e0e0e0 1px 1px 0;
+}
+
+.saveProfileBtn {
+  height: 30px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 7px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 14px;
+}
+
+.saveProfileBtn:active {
+  box-shadow: #e0e0e0 1px 1px 0;
+}
+
+.userProfileContainer {
+  width: 100vw;
+  height: calc(100% - 48px);
+  top: 48px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userPicInfoContainer {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+
+.userProfilePicContainer {
+  width: 350px;
+  height: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.userProfilePic {
+  display: flex;
+  position: relative;
+  border-radius: 15px;
+}
+
+.userProfileInfoContainer {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.userInfoContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.userP1 {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  color: black;
+  letter-spacing: 2px;
+  margin-top: 30px;
+}
+
+.userP2 {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  color: black;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-top: 30px;
+}
+
+.userP3 {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  color: black;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.userBioContainer {
+  display: flex;
+  position: relative;
+  justify-content: left;
+}
+
+.userP4 {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  color: black;
+  letter-spacing: 2px;
+  margin-top: 30px;
 }

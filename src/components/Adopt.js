@@ -30,6 +30,7 @@ export default class Adopt extends Component {
 
   retrieveAnimals = () => {
     axios.get("/api/animals").then(res => {
+      // console.log(res);
       this.setState({
         animalList: res.data
       });
@@ -37,21 +38,25 @@ export default class Adopt extends Component {
   };
 
   render() {
-    const { animalList } = this.state;
-    return (
-      <div className="adoptionPage">
-        <div className="animalsContainer">
-          {animalList.map(animal => {
-            return (
-              <Link to="/AnimalProfile">
-                <div key={animal.id}>
-                  <MiniAnimalProfile animal={animal} />
-                </div>
-              </Link>
-            );
-          })}
+    const singleAnimal = this.state.animalList.map((animal, i) => {
+      return (
+        <div key={animal.id}>
+          <Link
+            to={{
+              pathname: `/adopt/animalprofile/${animal.id}`,
+              state: animal
+            }}
+            className="animalProfileLink"
+          >
+            <MiniAnimalProfile animal={animal} />
+          </Link>
         </div>
-      </div>
+      );
+    });
+    return (
+      // <div className="adoptionPage">
+      <div className="animalsContainer">{singleAnimal}</div>
+      // </div>
     );
   }
 }

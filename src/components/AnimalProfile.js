@@ -14,18 +14,28 @@ export default class AnimalProfile extends Component {
 
   getSingleAnimal() {
     this.setState({
-      selectedAnimal: this.props.animal
+      selectedAnimal: this.props.location.state
     });
   }
 
   render() {
-    const { animal } = this.props;
+    const { selectedAnimal } = this.state;
     return (
       <div className="animalProfileContainer">
-        <div className="animalProfilePicContainer">Animal Image</div>
-        <div className="animalProfileInfoContainer">Animal Info</div>
-        <div className="animalProfileShelterContainer">
-          Animal Shelter Location
+        <div className="animalProfilePicContainer">
+          <img
+            className="profileAnimalImage"
+            src={selectedAnimal.image_url}
+            alt="visual of animal"
+          />
+        </div>
+        <div className="animalProfileInfoContainer">
+          <p>Name: {selectedAnimal.name}</p>
+          <p>Age: {selectedAnimal.age}</p>
+          <p>Sex: {selectedAnimal.sex}</p>
+          <p>Breed: {selectedAnimal.breed}</p>
+          <p>Size (Average Adult): {selectedAnimal.size}</p>
+          <p>Located At: {selectedAnimal.shelter_id}</p>
         </div>
       </div>
     );
