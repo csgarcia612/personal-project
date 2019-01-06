@@ -7,6 +7,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 const connect = require("connect-pg-simple");
 const animalsController = require("./controllers/animalsController");
+const usersController = require("./controllers/usersController");
+const sheltersController = require("./controllers/sheltersController");
+const nodemailer = require("nodemailer");
 
 massive(process.env.CONNECTION_STRING)
   .then(db => {
@@ -32,82 +35,16 @@ app.use(
   })
 );
 
-// Used for retrieving data from 3rd party api and posting to my table db
+// Used for retrieving animals data from 3rd party api and posting to my table db
 // app.post("/api/animals", animalsController.postApiDataToDb);
+
+// Used for retrieving shelters data from 3rd party api and posting to my table db
+// app.post("/api/shelters", sheltersController.postApiDataToDb);
 
 app.get("/api/animals", animalsController.getAnimals);
 
-// app.get("/callback", (req, res) => {
-//   // Code below
-//   exchangeCodeForAccessToken()
-//     .then(exchangeAccessTokenForUserInfo)
-//     .then(fetchAuth0AccessToken)
-//     .then(fetchGitHubAccessToken)
-//     .then(setGitTokenToSession)
-//     .catch(error => {
-//       console.log("error with app.get - /callback", error);
-//       res
-//         .status(500)
-//         .send("An error occurred on the server. Check the terminal.");
-//     });
-//   function exchangeCodeForAccessToken() {
-//     const payload = {
-//       client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
-//       client_secret: process.env.AUTH0_CLIENT_SECRET,
-//       code: req.query.code,
-//       grant_type: "authorization_code",
-//       redirect_uri: `http://${req.headers.host}/callback`
-//     };
-//     return axios.post(
-//       `https://${process.env.REACT_APP_AUTH0_DOMAIN}/oauth/token`,
-//       payload
-//     );
-//   }
-
-//   function exchangeAccessTokenForUserInfo(accessTokenResponse) {
-//     const accessToken = accessTokenResponse.data.access_token;
-//     return axios.get(
-//       `https://${
-//         process.env.REACT_APP_AUTH0_DOMAIN
-//       }/userinfo?access_token=${accessToken}`
-//     );
-//   }
-//   function fetchAuth0AccessToken(userInfoResponse) {
-//     req.session.user = userInfoResponse.data;
-
-//     const payload = {
-//       grant_type: "client_credentials",
-//       client_id: process.env.AUTH0_API_CLIENT_ID,
-//       client_secret: process.env.AUTH0_API_CLIENT_SECRET,
-//       audience: `https://${process.env.REACT_APP_AUTH0_DOMAIN}/api/v2/`
-//     };
-//     return axios.post(
-//       `https://${process.env.REACT_APP_AUTH0_DOMAIN}/oauth/token`,
-//       payload
-//     );
-//   }
-//   function fetchGitHubAccessToken(auth0AccessTokenResponse) {
-//     const options = {
-//       headers: {
-//         authorization: `Bearer ${auth0AccessTokenResponse.data.access_token}`
-//       }
-//     };
-//     return axios.get(
-//       `https://${process.env.REACT_APP_AUTH0_DOMAIN}/api/v2/users/${
-//         req.session.user.sub
-//       }`,
-//       options
-//     );
-//   }
-//   function setGitTokenToSession(gitHubAccessTokenResponse) {
-//     req.session.gitHubAccessToken =
-//       gitHubAccessTokenResponse.data.identities[0].access_token;
-//     res.redirect("/");
-//   }
-// });
-
 app.get("/callback", (req, res) => {
-  // console.log("/callback");
+  console.log("/callback");
   const payload = {
     client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
     client_secret: process.env.AUTH0_CLIENT_SECRET,
@@ -148,7 +85,7 @@ app.get("/callback", (req, res) => {
             image_url: singleUser[0].image_url,
             bio: singleUser[0].bio
           };
-          console.log(req.session);
+          // console.log(req.session);
           res.redirect("/");
         } else {
           // console.log(user.name.split(" "));
@@ -190,6 +127,10 @@ app.post("/api/logout", (req, res) => {
   req.session.destroy();
   res.send("Logged Out Successfully");
 });
+
+app.put("/api/updateUser/:auth0_id", usersController.update);
+
+app.delete("/api/deleteUser/:auth0_id", usersController.delete);
 
 const PORT = 4000;
 app.listen(PORT, () => {

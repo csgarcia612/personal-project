@@ -33,6 +33,7 @@ export default class Contact extends Component {
         <div className="submitBtnContainer">
           <button className="contactSubmitButton">Submit</button>
         </div>
+        <div className="contactContainer">PUT NODEMAILER CONNECT HERE</div>
       </div>
     );
   }

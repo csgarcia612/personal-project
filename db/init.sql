@@ -28,11 +28,17 @@ animal_id integer
 
 create table if not exists shelters(
 id serial primary key,
+shelter_id text,
 name text,
-address text,
+phone text,
+email text,
+address1 text,
+address2 text,
 city text,
 state varchar(2),
-zipcode integer
+zipcode integer,
+latitude text,
+longitude text
 );
 
 -- Following table is just for connect-pg-simple package

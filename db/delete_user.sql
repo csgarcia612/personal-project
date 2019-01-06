@@ -1,1 +1,1 @@
-delete from users where auth0_id = $1;
+delete from users where auth0_id = ${auth0_id};

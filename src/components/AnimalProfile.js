@@ -30,12 +30,27 @@ export default class AnimalProfile extends Component {
           />
         </div>
         <div className="animalProfileInfoContainer">
-          <p>Name: {selectedAnimal.name}</p>
+          <p>Name: {selectedAnimal.animal_name}</p>
           <p>Age: {selectedAnimal.age}</p>
           <p>Sex: {selectedAnimal.sex}</p>
           <p>Breed: {selectedAnimal.breed}</p>
           <p>Size (Average Adult): {selectedAnimal.size}</p>
-          <p>Located At: {selectedAnimal.shelter_id}</p>
+          <div className="animalProfileShelterContainer">
+            <p>Located At: </p>
+            <p>{selectedAnimal.shelter_name}</p>
+            <div className="shelterAddressContainer">
+              {/* <p>Street1</p>
+            <p>Street2</p> */}
+              <p>
+                {selectedAnimal.city}, {selectedAnimal.state}
+              </p>
+              {/* <p>Zipcode</p> */}
+            </div>
+            {/* <div>
+            <p>Phone</p>
+            <p>Email</p>
+          </div> */}
+          </div>
         </div>
       </div>
     );

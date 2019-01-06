@@ -6,18 +6,18 @@ export default class Donate extends Component {
       <div className="donationFormContainer">
         <div className="donatorInfoContainer">
           <div>
-            <p className="contactP1">Name: </p>
-            <input className="contactInput" placeholder="First and Last Name" />
+            <p className="donateP1">Name: </p>
+            <input className="donateInput" placeholder="First and Last Name" />
           </div>
           <div>
-            <p className="contactP1">Email: </p>
-            <input className="contactInput" placeholder="Email@Website.com" />
+            <p className="donateP1">Email: </p>
+            <input className="donateInput" placeholder="Email@Website.com" />
           </div>
           <div>
-            <p className="contactP2">Message: </p>
-            <input
-              className="contactInput"
-              maxLength="75"
+            <p className="donateP2">Message: </p>
+            <textarea
+              className="donateInputMessage"
+              maxLength="250"
               placeholder="Message"
             />
           </div>

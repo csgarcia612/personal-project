@@ -163,12 +163,18 @@ path {
   border-radius: 50%;
   display: flex;
   position: relative;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
 }
 
 .animalsContainer {
   display: flex;
   position: relative;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: space-between;
   top: 60px;
   padding-bottom: 15px;
 }
@@ -184,7 +190,7 @@ path {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 450px;
   margin-top: 15px;
 }
 
@@ -196,28 +202,61 @@ path {
 }
 
 .miniAnimalImage {
-  width: 500px;
-  min-height: 500px;
+  width: 450px;
+  min-height: 450px;
+  max-height: 450px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 
 .animalInfoContainer {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.miniInfo1 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.miniInfo2 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.miniAnimalInfo1 {
   font-family: "Muli", sans-serif;
   font-size: 25px;
   text-align: center;
   letter-spacing: 1px;
   color: black;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+}
+
+.miniAnimalInfo2 {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  text-align: center;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  color: black;
 }
 
 .animalProfileContainer {
   max-height: 90vh;
+  top: 60px;
   background-color: rgb(233, 196, 196);
   border-radius: 15px;
   position: relative;
@@ -255,14 +294,116 @@ path {
   margin-right: 5px;
 }
 
+.animalProfileShelterContainer {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  text-align: left;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.animalProfileShelterContainer > p {
+  margin-top: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.shelterAddressContainer {
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  text-align: left;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.shelterAddressContainer > p {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .donationFormContainer {
   display: flex;
   position: relative;
   flex-direction: column;
   top: 60px;
+  padding-bottom: 15px;
 }
 
 .donationContainer {
+  color: red;
+  font-size: 40px;
+}
+
+.donateP1 {
+  display: flex;
+  position: relative;
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
+  letter-spacing: 1.75px;
+  color: black;
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
+  margin-bottom: 4px;
+  z-index: 999;
+}
+
+.donateP2 {
+  display: flex;
+  position: relative;
+  font-family: "Muli", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
+  letter-spacing: 1.75px;
+  color: black;
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
+  margin-bottom: 8px;
+  z-index: 999;
+}
+
+.donateInput {
+  display: flex;
+  position: relative;
+  width: 600px;
+  font-family: "Muli", sans-serif;
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
+  z-index: 990;
+}
+
+.donateInputMessage {
+  display: flex;
+  position: relative;
+  width: 600px;
+  height: 175px;
+  font-family: "Muli", sans-serif;
+  font-size: 18px;
+  color: black;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
+  z-index: 990;
+}
+
+.contactContainer {
   color: red;
   font-size: 40px;
 }
@@ -276,6 +417,8 @@ path {
 }
 
 .contactP1 {
+  display: flex;
+  position: relative;
   font-family: "Muli", sans-serif;
   font-size: 25px;
   font-weight: bold;
@@ -286,9 +429,12 @@ path {
     -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
     0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
   margin-bottom: 4px;
+  z-index: 999;
 }
 
 .contactP2 {
+  display: flex;
+  position: relative;
   font-family: "Muli", sans-serif;
   font-size: 25px;
   font-weight: bold;
@@ -299,33 +445,59 @@ path {
     -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
     0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
   margin-bottom: 8px;
+  z-index: 999;
 }
 
 .contactInput {
+  display: flex;
+  position: relative;
   width: 600px;
   font-family: "Muli", sans-serif;
   font-size: 18px;
   color: black;
   text-align: center;
   margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
+  z-index: 990;
 }
 
 .contactInputSubject {
+  display: flex;
+  position: relative;
   width: 500px;
   font-family: "Muli", sans-serif;
   font-size: 18px;
   color: black;
   text-align: center;
   margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
+  z-index: 990;
 }
 
 .contactInputMessage {
+  display: flex;
+  position: relative;
   width: 600px;
   height: 350px;
   font-family: "Muli", sans-serif;
   font-size: 18px;
   color: black;
   margin-bottom: 10px;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
+  z-index: 990;
 }
 
 .submitBtnContainer {
@@ -350,7 +522,7 @@ path {
   box-shadow: #e0e0e0 1px 1px 0;
 }
 
-.userProfilePageContainer {
+.userProfilePageContainer1 {
   width: 100vw;
   height: calc(100vh - 48px);
   display: flex;
@@ -362,29 +534,35 @@ path {
 
 .userProfilePageContainer2 {
   width: 100vw;
-  height: 100%;
+  height: calc(100vh - 48px);
   display: flex;
   position: relative;
   justify-content: center;
   align-content: space-between;
+  top: 48px;
 }
 
 .buttonsContainer {
   width: 100%;
-  height: 48px;
+  height: 50px;
   display: flex;
+  position: absolute;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   position: fixed;
   z-index: 999;
 }
 
-.editSaveBtnContainer {
+.editBtnContainer {
   display: flex;
   position: relative;
 }
 
 .editProfileBtn {
+  display: flex;
+  position: relative;
+  z-index: 999;
   height: 30px;
   background-color: rgb(47, 255, 47);
   border-radius: 7px;
@@ -398,7 +576,61 @@ path {
   box-shadow: #e0e0e0 1px 1px 0;
 }
 
+.saveProfileBtnContainer {
+  display: flex;
+  position: relative;
+}
+
 .saveProfileBtn {
+  display: flex;
+  position: relative;
+  z-index: 999;
+  height: 30px;
+  background-color: rgb(47, 255, 47);
+  border-radius: 7px;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 14px;
+}
+
+.saveProfileBtn:active {
+  box-shadow: #e0e0e0 1px 1px 0;
+}
+
+.cancelEditBtnContainer {
+  display: flex;
+  position: relative;
+}
+
+.cancelEditBtn {
+  display: flex;
+  position: relative;
+  z-index: 999;
+  height: 30px;
+  background-color: rgb(255, 187, 0);
+  border-radius: 7px;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 14px;
+}
+
+.cancelEditBtn:active {
+  box-shadow: #e0e0e0 1px 1px 0;
+}
+
+.deleteUserBtnContainer {
+  display: flex;
+  position: relative;
+}
+
+.deleteUserBtn {
+  display: flex;
+  position: relative;
+  z-index: 999;
   height: 30px;
   background-color: rgb(255, 0, 0);
   border-radius: 7px;
@@ -409,7 +641,7 @@ path {
   margin: 14px;
 }
 
-.saveProfileBtn:active {
+.deleteUserBtn:active {
   box-shadow: #e0e0e0 1px 1px 0;
 }
 
@@ -431,24 +663,40 @@ path {
 }
 
 .userProfilePicContainer {
-  width: 350px;
+  max-width: 400px;
   height: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
+  background-color: #7fbdda;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
 }
 
 .userProfilePic {
+  width: 100%;
   display: flex;
   position: relative;
   border-radius: 15px;
+  z-index: 999;
 }
 
 .userProfileInfoContainer {
   display: flex;
   position: relative;
+  justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #7fbdda;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
 }
 
 .userInfoContainer {
@@ -456,45 +704,153 @@ path {
   position: relative;
   flex-direction: column;
   justify-content: left;
+  align-content: space-between;
+}
+
+.usernameContainer {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.firstNameContainer {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.lastNameContainer {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.emailContainer {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.imageUrlContainer {
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
 }
 
 .userP1 {
+  display: flex;
+  position: relative;
+  z-index: 999;
   font-family: "Muli", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   color: black;
   letter-spacing: 2px;
-  margin-top: 30px;
+  margin-right: 10px;
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
 }
 
 .userP2 {
+  display: flex;
+  position: relative;
+  z-index: 999;
   font-family: "Muli", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   color: black;
   letter-spacing: 2px;
   text-transform: capitalize;
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
 }
 
 .userP3 {
+  display: flex;
+  position: relative;
+  z-index: 999;
   font-family: "Muli", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   color: black;
   letter-spacing: 2px;
   text-transform: capitalize;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  /* margin-top: 30px; */
+  /* margin-bottom: 30px; */
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
 }
 
 .userBioContainer {
   display: flex;
   position: relative;
-  justify-content: left;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #7fbdda;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
 }
 
 .userP4 {
+  display: flex;
+  position: relative;
+  z-index: 999;
+  margin-bottom: 10px;
   font-family: "Muli", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   color: black;
   letter-spacing: 2px;
-  margin-top: 30px;
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
+}
+
+.editUserInput1 {
+  display: flex;
+  position: relative;
+  width: 250px;
+  font-family: "Muli", sans-serif;
+  font-size: 18px;
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  z-index: 990;
+}
+
+.editUserInput2 {
+  display: flex;
+  position: relative;
+  width: 600px;
+  height: 200px;
+  font-family: "Muli", sans-serif;
+  font-size: 18px;
+  color: black;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  box-shadow: #7fbdda 0px 0px 5px, #7fbdda 0px 0px 10px, #7fbdda 0px 0px 15px,
+    #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
+    #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
+  z-index: 990;
 }

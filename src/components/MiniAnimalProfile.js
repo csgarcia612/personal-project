@@ -11,9 +11,18 @@ export default function MiniAnimalProfile(props) {
         />
       </div>
       <div className="animalInfoContainer">
-        <p className="miniAnimalInfo">Name: {props.animal.name}</p>
-        <p className="miniAnimalInfo">Sex: {props.animal.sex}</p>
-        <p className="miniAnimalInfo">Age: {props.animal.age}</p>
+        <div className="miniInfo1">
+          <p className="miniAnimalInfo1">Name:</p>
+          <p className="miniAnimalInfo2">{props.animal.animal_name}</p>
+        </div>
+        <div className="miniInfo1">
+          <p className="miniAnimalInfo1">Sex:</p>
+          <p className="miniAnimalInfo2">{props.animal.sex}</p>
+        </div>
+        <div className="miniInfo2">
+          <p className="miniAnimalInfo1">Age:</p>
+          <p className="miniAnimalInfo2">{props.animal.age}</p>
+        </div>
       </div>
     </div>
   );

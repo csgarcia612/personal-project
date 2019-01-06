@@ -37,8 +37,9 @@ class App extends Component {
   }
 
   logout() {
-    axios.post("/api/logout").then(response => {
+    axios.post("/api/logout").then(res => {
       this.props.setUser(null);
+      this.props.history.push("/");
     });
   }
 
@@ -109,11 +110,7 @@ class App extends Component {
             <Route exact path="/adopt" component={Adopt} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/donate" component={Donate} />
-            <Route
-              exact
-              path="/adopt/animalprofile/:id"
-              component={AnimalProfile}
-            />
+            <Route path="/adopt/animalprofile/:id" component={AnimalProfile} />
           </Switch>
         </div>
       </div>
