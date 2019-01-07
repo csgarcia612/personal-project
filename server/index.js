@@ -8,7 +8,7 @@ dotenv.config();
 const connect = require("connect-pg-simple");
 const animalsController = require("./controllers/animalsController");
 const usersController = require("./controllers/usersController");
-const sheltersController = require("./controllers/sheltersController");
+// const sheltersController = require("./controllers/sheltersController");
 const nodemailer = require("nodemailer");
 
 massive(process.env.CONNECTION_STRING)
@@ -20,6 +20,7 @@ massive(process.env.CONNECTION_STRING)
   });
 
 const app = express();
+app.use(express.static(`${__dirname}/../build`));
 app.use(bodyParser.json());
 app.use(
   session({
@@ -135,4 +136,9 @@ app.delete("/api/deleteUser/:auth0_id", usersController.delete);
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
+});
+
+const path = require("path");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
 });
