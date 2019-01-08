@@ -20,7 +20,6 @@ massive(process.env.CONNECTION_STRING)
   });
 
 const app = express();
-app.use(express.static(`${__dirname}/../build`));
 app.use(bodyParser.json());
 app.use(
   session({
@@ -132,6 +131,8 @@ app.post("/api/logout", (req, res) => {
 app.put("/api/updateUser/:auth0_id", usersController.update);
 
 app.delete("/api/deleteUser/:auth0_id", usersController.delete);
+
+app.use(express.static(`${__dirname}/../build`));
 
 const path = require("path");
 app.get("*", (req, res) => {
