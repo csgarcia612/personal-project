@@ -97,6 +97,7 @@ header {
   margin: 7px;
   color: white;
   text-decoration: none;
+  text-transform: capitalize;
 }
 
 .active {
@@ -403,11 +404,6 @@ path {
   z-index: 990;
 }
 
-.contactContainer {
-  color: red;
-  font-size: 40px;
-}
-
 .contactFormContainer {
   display: flex;
   position: relative;
@@ -710,7 +706,7 @@ path {
 .usernameContainer {
   display: flex;
   position: relative;
-  margin-top: 20px;
+  margin-top: 15px;
   flex-direction: row;
   justify-content: left;
   align-items: center;
@@ -719,7 +715,7 @@ path {
 .firstNameContainer {
   display: flex;
   position: relative;
-  margin-top: 20px;
+  margin-top: 30px;
   flex-direction: row;
   justify-content: left;
   align-items: center;
@@ -728,7 +724,7 @@ path {
 .lastNameContainer {
   display: flex;
   position: relative;
-  margin-top: 20px;
+  margin-top: 30px;
   flex-direction: row;
   justify-content: left;
   align-items: center;
@@ -737,8 +733,8 @@ path {
 .emailContainer {
   display: flex;
   position: relative;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   flex-direction: row;
   justify-content: left;
   align-items: center;
@@ -747,7 +743,7 @@ path {
 .imageUrlContainer {
   display: flex;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   flex-direction: row;
   justify-content: left;
   align-items: center;
@@ -758,7 +754,7 @@ path {
   position: relative;
   z-index: 999;
   font-family: "Muli", sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   color: black;
   letter-spacing: 2px;
   margin-right: 10px;
@@ -772,7 +768,7 @@ path {
   position: relative;
   z-index: 999;
   font-family: "Muli", sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   color: black;
   letter-spacing: 2px;
   text-transform: capitalize;
@@ -787,7 +783,7 @@ path {
   position: relative;
   z-index: 999;
   font-family: "Muli", sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   color: black;
   letter-spacing: 2px;
   text-transform: capitalize;
@@ -816,7 +812,7 @@ path {
   z-index: 999;
   margin-bottom: 10px;
   font-family: "Muli", sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   color: black;
   letter-spacing: 2px;
   text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
@@ -853,4 +849,32 @@ path {
     #7fbdda 0px 0px 20px, #7fbdda 0px 0px 30px, #7fbdda 0px 0px 40px,
     #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
   z-index: 990;
+}
+
+.editUserP1 {
+  display: flex;
+  position: relative;
+  z-index: 999;
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+  color: black;
+  letter-spacing: 2px;
+  margin-right: 10px;
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
+}
+
+.editUserP2 {
+  display: flex;
+  position: relative;
+  z-index: 999;
+  margin-bottom: 10px;
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+  color: black;
+  letter-spacing: 2px;
+  text-shadow: 1.25px 1.25px 0 #ffffff, 1.25px -1.25px 0 #ffffff,
+    -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
+    0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
 }

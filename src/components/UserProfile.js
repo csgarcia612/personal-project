@@ -82,8 +82,7 @@ class UserProfile extends Component {
         this.setState({
           allowEdit: false
         }),
-        console.log(user),
-        this.props.history.push(`/user/${user.username}`)
+        this.props.history.push(`/user/${this.state.username}`)
       );
   }
 
@@ -187,7 +186,7 @@ class UserProfile extends Component {
                   <div className="userProfileInfoContainer">
                     <div className="userInfoContainer">
                       <div className="usernameContainer">
-                        <p className="userP1">USERNAME: </p>
+                        <p className="editUserP1">USERNAME: </p>
                         <input
                           className="editUserInput1"
                           value={username}
@@ -196,7 +195,7 @@ class UserProfile extends Component {
                         />
                       </div>
                       <div className="firstNameContainer">
-                        <p className="userP1">FIRST NAME: </p>
+                        <p className="editUserP1">FIRST NAME: </p>
                         <input
                           className="editUserInput1"
                           value={first_name}
@@ -205,7 +204,7 @@ class UserProfile extends Component {
                         />
                       </div>
                       <div className="lastNameContainer">
-                        <p className="userP1">LAST NAME: </p>
+                        <p className="editUserP1">LAST NAME: </p>
                         <input
                           className="editUserInput1"
                           value={last_name}
@@ -214,7 +213,7 @@ class UserProfile extends Component {
                         />
                       </div>
                       <div className="emailContainer">
-                        <p className="userP1">EMAIL: </p>
+                        <p className="editUserP1">EMAIL: </p>
                         <input
                           className="editUserInput1"
                           value={email}
@@ -223,7 +222,7 @@ class UserProfile extends Component {
                         />
                       </div>
                       <div className="imageUrlContainer">
-                        <p className="userP1">IMAGE URL: </p>
+                        <p className="editUserP1">IMAGE URL: </p>
                         <input
                           className="editUserInput1"
                           value={image_url}
@@ -237,7 +236,7 @@ class UserProfile extends Component {
                 <div className="userBioContainer1">
                   <div className="userBioContainer2">
                     <div className="bioContainer">
-                      <p className="userP4">BIO: </p>
+                      <p className="editUserP2">BIO: </p>
                       <textarea
                         className="editUserInput2"
                         maxLength="750"
