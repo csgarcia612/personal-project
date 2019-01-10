@@ -46,7 +46,7 @@ class Donate extends Component {
       token,
       state: this.state
     };
-    console.log("creditCharge", creditCharge);
+    // console.log("creditCharge", creditCharge);
     axios
       .post("/api/stripe", creditCharge)
       .then(res => console.log(res))
@@ -98,7 +98,7 @@ class Donate extends Component {
           </div>
         </div>
         <div className="donationContainer">
-          {console.log(".env.STRIPE_SECRET", process.env.REACT_APP_STRIPE_KEY)}
+          {/* {console.log(".env.STRIPE_SECRET", process.env.REACT_APP_STRIPE_KEY)} */}
           <StripeCheckout
             token={this.onToken}
             stripeKey={process.env.REACT_APP_STRIPE_KEY}

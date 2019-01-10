@@ -48,7 +48,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 30
+      maxAge: 1000 * 60 * 60 * 24 * 2
     }
   })
 );
@@ -111,6 +111,7 @@ app.get("/callback", (req, res) => {
           res.redirect("/");
         } else {
           // console.log(user.name.split(" "));
+          // console.log("user info", user);
           let splitName = user.name.split(" ");
           return req.app
             .get("db")

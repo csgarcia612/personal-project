@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Contact extends Component {
   constructor() {
@@ -15,6 +16,20 @@ class Contact extends Component {
     this.sendEmail = this.sendEmail.bind(this);
   }
 
+  componentDidMount() {
+    this.fillUserData();
+  }
+
+  fillUserData() {
+    const { user } = this.props;
+    user &&
+      this.setState({
+        contactName: `${user.first_name} ${user.last_name}`,
+        contactEmailAddress: user.email
+      });
+    // console.log(user);
+  }
+
   contactFormChange(event) {
     this.setState({
       [event.target.name]: event.target.value
@@ -26,6 +41,8 @@ class Contact extends Component {
   }
 
   render() {
+    // console.log(this.state);
+    const { contactName, contactEmailAddress } = this.state;
     return (
       <div className="contactFormContainer">
         <div className="messageContainer">
@@ -33,7 +50,7 @@ class Contact extends Component {
             <p className="contactP1">Name: </p>
             <input
               className="contactInput"
-              placeholder="First and Last Name"
+              value={contactName}
               onChange={this.contactFormChange}
               name="contactName"
             />
@@ -42,7 +59,7 @@ class Contact extends Component {
             <p className="contactP1">Email: </p>
             <input
               className="contactInput"
-              placeholder="Email@Website.com"
+              value={contactEmailAddress}
               onChange={this.contactFormChange}
               name="contactEmailAddress"
             />
@@ -78,4 +95,10 @@ class Contact extends Component {
   }
 }
 
-export default Contact;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default withRouter(connect(mapStateToProps)(Contact));

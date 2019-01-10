@@ -63,7 +63,6 @@ export default class Adopt extends Component {
       return (
         <div key={animal.id}>
           <Link
-            exact
             to={{
               pathname: `/adopt/animalprofile/${animal.id}/${
                 animal.animal_name
