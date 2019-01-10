@@ -10,6 +10,7 @@ const animalsController = require("./controllers/animalsController");
 const usersController = require("./controllers/usersController");
 // const sheltersController = require("./controllers/sheltersController");
 const nodemailer = require("nodemailer");
+const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
 const transporter = nodemailer.createTransport({
   host: "smtp.ethereal.email",
@@ -140,6 +141,24 @@ app.get("/callback", (req, res) => {
     });
 });
 
+app.post("/api/stripe", function(req, res, next) {
+  console.log(req.body);
+  const stripeToken = req.body.token.id;
+  // console.log(stripeToken);
+  stripe.charges.create(
+    {
+      amount: req.body.state.amount * 100,
+      currency: "usd",
+      description: "Test Stripe Credit Charge",
+      source: stripeToken
+    },
+    (error, charge) => {
+      error ? res.status(500).send(error) : res.status(200).send(charge);
+    }
+    // asynchronously called
+  );
+});
+
 app.post("/api/contactEmail", (req, res) => {
   // console.log(req.body);
   const {
@@ -170,7 +189,7 @@ app.post("/api/contactEmail", (req, res) => {
                 </td>
               </tr>
               <tr style="border-color:"#7FBDDA";">
-                <td align="center" bgcolor="#7FBDDA" style="padding: 2.5px 0 2.5px 0;" style="color: #000000; font-family: "Comic Sans MS", cursive, sans-serif; font-size: 200px; font-weight: bolder; border-top: 0.5px solid #7FBDDA;">
+                <td align="center" bgcolor="#7FBDDA" style="padding: 2.5px 0 2.5px 0; color: #000000; font-family: "Comic Sans MS", cursive, sans-serif; font-size: 200px; font-weight: bolder; border-top: 0.5px solid #7FBDDA;">
                   <b><i>PAWS FUR LOVE<i></b>
                 </td>
               </tr>
