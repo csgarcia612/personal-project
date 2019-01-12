@@ -169,6 +169,57 @@ path {
     #7fbdda 0px 0px 50px, #7fbdda 0px 0px 75px;
 }
 
+.adoptionPage {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 60px;
+  padding-bottom: 15px;
+}
+
+.adoptBtnsContainer1 {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.adoptBtnsContainer2 {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.adoptBtns {
+  height: 35px;
+  width: 105px;
+  background-color: rgb(26, 124, 236);
+  border-radius: 7px;
+  margin-left: 25px;
+  margin-right: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0.75px 0.75px 0 #ffffff, 0.75px -0.75px 0 #ffffff,
+    -0.75px 0.75px 0 #ffffff, -0.75px -0.75px 0 #ffffff, 0.75px 0px 0 #ffffff,
+    0px 0.75px 0 #ffffff, -0.75px 0px 0 #ffffff, 0px -0.75px 0 #ffffff;
+}
+
+.adoptBtns:active {
+  box-shadow: #e0e0e0 1px 1px 0;
+}
+
+.adoptBtns:disabled {
+  background-color: rgb(68, 68, 68);
+  color: rgb(68, 68, 68);
+}
+
 .animalsContainer {
   display: flex;
   position: relative;
@@ -176,8 +227,6 @@ path {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: space-between;
-  top: 60px;
-  padding-bottom: 15px;
 }
 
 .animalProfileLink {

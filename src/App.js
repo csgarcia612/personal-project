@@ -56,12 +56,7 @@ class App extends Component {
             <NavLink exact to="/" className="navLinks" activeClassName="active">
               Home
             </NavLink>
-            <NavLink
-              exact
-              to="/adopt"
-              className="navLinks"
-              activeClassName="active"
-            >
+            <NavLink to="/adopt" className="navLinks" activeClassName="active">
               Adopt
             </NavLink>
             <NavLink
@@ -107,7 +102,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route path="/user" component={UserProfile} />
-            <Route exact path="/adopt" component={Adopt} />
+            <Route path="/adopt" component={Adopt} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/donate" component={Donate} />
             <Route path="/adopt/animalprofile/:id" component={AnimalProfile} />

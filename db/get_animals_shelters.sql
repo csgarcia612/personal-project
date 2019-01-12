@@ -18,4 +18,5 @@ s.latitude,
 s.longitude
 from animals a
 join shelters s
-on a.shelter_id = s.shelter_id;
+on a.shelter_id = s.shelter_id
+ORDER BY a.id ASC
