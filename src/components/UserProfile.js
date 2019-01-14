@@ -119,6 +119,11 @@ class UserProfile extends Component {
                     <img
                       className="userProfilePic"
                       src={user && user.image_url}
+                      onError={e => {
+                        e.target.onerror = null;
+                        e.target.src =
+                          "http://profilepicturesdp.com/wp-content/uploads/2018/06/default-profile-picture-5.jpg";
+                      }}
                       alt="User Profile Imagery"
                     />
                   </div>

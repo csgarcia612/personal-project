@@ -110,6 +110,17 @@ class Donate extends Component {
             allowRememberMe={false}
           />
         </div>
+        <div className="warningTextContainer">
+          <p className="warningText1">
+            WARNING: DO NOT ENTER REAL CREDIT CARD INFORMATION!
+          </p>
+          <p className="warningText2">USE THIS TEST INFO:</p>
+          <p className="warningText2">* Card Number: 4242 4242 4242 4242</p>
+          <p className="warningText2">
+            * Expiration Date: Any date after the current date
+          </p>
+          <p className="warningText2">* CVC: Any number</p>
+        </div>
       </div>
     );
   }
