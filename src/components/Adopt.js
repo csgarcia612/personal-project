@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import MiniAnimalProfile from "./MiniAnimalProfile";
 // import fetchJsonp from "fetch-jsonp";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import AnimalProfile from "./AnimalProfile";
 
 class Adopt extends Component {
   constructor() {
@@ -15,6 +17,7 @@ class Adopt extends Component {
       numberOfPages: 0,
       limitPerPage: 25,
       offset: 0,
+      showModal: [],
       filters: {
         age: ["Baby", "Young", "Adult", "Senior"],
         sex: ["M", "F"],
@@ -31,7 +34,8 @@ class Adopt extends Component {
     this.updateSex = this.updateSex.bind(this);
     this.updateSize = this.updateSize.bind(this);
     this.useFilters = this.useFilters.bind(this);
-    this.resetFilters = this.resetFilters.bind(this);
+    // this.resetFilters = this.resetFilters.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidMount() {
@@ -99,8 +103,8 @@ class Adopt extends Component {
 
   filterAnimals() {
     const { animalList, filters } = this.state;
-    console.log("Animal List:", animalList);
-    console.log("Filters:", filters);
+    // console.log("Animal List:", animalList);
+    // console.log("Filters:", filters);
     const filterKeyNames = Object.keys(filters);
     const filteredAnimals = animalList.filter(animal => {
       return filterKeyNames.every(eachKey => {
@@ -113,7 +117,7 @@ class Adopt extends Component {
     this.setState({
       filteredList: filteredAnimals
     });
-    console.log("Filtered List:", this.state.filteredList);
+    // console.log("Filtered List:", this.state.filteredList);
   }
 
   getNumberOfPages() {
@@ -122,7 +126,7 @@ class Adopt extends Component {
     this.setState({
       numberOfPages: pageCount
     });
-    console.log("Number Of Pages:", this.state.numberOfPages);
+    // console.log("Number Of Pages:", this.state.numberOfPages);
   }
 
   createPage(action) {
@@ -169,7 +173,7 @@ class Adopt extends Component {
     }
     this.setState(stateCopy);
     // console.log("filtersCopy", filtersCopy);
-    console.log("this.state", this.state);
+    // console.log("this.state", this.state);
   }
 
   updateSex(event) {
@@ -181,7 +185,7 @@ class Adopt extends Component {
     }
     this.setState(stateCopy);
     // console.log("filtersCopy", filtersCopy);
-    console.log("this.state", this.state);
+    // console.log("this.state", this.state);
   }
 
   updateSize(event) {
@@ -193,54 +197,83 @@ class Adopt extends Component {
     }
     this.setState(stateCopy);
     // console.log("filtersCopy", filtersCopy);
-    console.log("this.state", this.state);
+    // console.log("this.state", this.state);
   }
 
   useFilters() {
     this.retrieveAnimals();
   }
 
-  resetFilters() {
+  // resetFilters() {
+  //   this.setState({
+  //     filters: {
+  //       age: ["Baby", "Young", "Adult", "Senior"],
+  //       sex: ["M", "F"],
+  //       size: ["S", "M", "L", "XL"]
+  //     }
+  //   });
+  //   this.retrieveAnimals();
+  //   // console.log("filtersCopy", filtersCopy);
+  //   // console.log("this.state", this.state);
+  // }
+
+  toggleModal(i) {
+    // console.log("showModal", this.state.showModal);
+    // console.log("outsideReturnFuncModal", i);
+    let showModal = [...this.state.showModal];
+    showModal[i] = !showModal[i];
     this.setState({
-      filters: {
-        age: ["Baby", "Young", "Adult", "Senior"],
-        sex: ["M", "F"],
-        size: ["S", "M", "L", "XL"]
-      }
+      ...this.state,
+      showModal
     });
-    this.retrieveAnimals();
-    // console.log("filtersCopy", filtersCopy);
-    console.log("this.state", this.state);
+    // console.log("showModal", this.state.showModal);
   }
 
   render() {
     const { currentPageList, currentPage, numberOfPages } = this.state;
+    // const splitAnimals = currentPageList.map((animal, i) => {
+    //   return (
+    //     <div key={animal.id}>
+    //       <Link
+    //         to={{
+    //           pathname: `/animalprofile/${animal.id}/${animal.animal_name}`,
+    //           state: animal
+    //         }}
+    //         className="animalProfileLink"
+    //       >
+    //         <MiniAnimalProfile animal={animal} />
+    //       </Link>
+    //     </div>
+    //   );
+    // });
     const splitAnimals = currentPageList.map((animal, i) => {
+      // console.log("map i", i);
       return (
         <div key={animal.id}>
-          <Link
-            to={{
-              pathname: `/adopt/animalprofile/${animal.id}/${
-                animal.animal_name
-              }`,
-              state: animal
-            }}
-            className="animalProfileLink"
-          >
+          {this.state.showModal[i] ? (
+            <div
+              onClick={() => {
+                this.toggleModal(i);
+              }}
+              className="modalBackdrop"
+            >
+              <div className="animalProfileModal">
+                <AnimalProfile animal={animal} />
+              </div>
+            </div>
+          ) : null}
+          <div className="animalModalBtn" onClick={() => this.toggleModal(i)}>
             <MiniAnimalProfile animal={animal} />
-          </Link>
+          </div>
         </div>
       );
     });
+
     // console.log("Current Page:", currentPage);
+    // console.log("showModalState", this.state.showModal);
     return (
       <div className="adoptionPage">
         <div className="filterMenuContainer">
-          {/* <div className="resetBtnContainer">
-            <button className="adoptBtns" onClick={this.resetFilters}>
-              Reset
-            </button>
-          </div> */}
           <div className="filterContainer">
             <p className="filterP">AGE:</p>
             <select className="dropDownFilter" onChange={this.updateAge}>

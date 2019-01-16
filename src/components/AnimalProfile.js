@@ -14,7 +14,8 @@ export default class AnimalProfile extends Component {
 
   getSingleAnimal() {
     this.setState({
-      selectedAnimal: this.props.location.state
+      // selectedAnimal: this.props.location.state
+      selectedAnimal: this.props.animal
     });
   }
 
