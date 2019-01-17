@@ -50,10 +50,10 @@ class App extends Component {
     this.setState({
       showMenu: !this.state.showMenu
     });
-    console.log("showMenu", this.state.showMenu);
   }
 
   render() {
+    console.log("showMenu", this.state.showMenu);
     const { user } = this.props;
     // console.log(user);
     return (
@@ -107,78 +107,76 @@ class App extends Component {
               )}
             </div>
           </div>
+          <div className="dropDownBtnContainer">
+            <button className="dropDownMenuBtn" onClick={this.toggleMenu}>
+              Menu
+            </button>
+          </div>
+          <div
+            className={
+              this.state.showMenu ? "showDropDownMenu" : "hideDropDownMenu"
+            }
+          >
+            {user ? (
+              <div>
+                <ul>
+                  <li>
+                    <a href="/">Home</a>
+                  </li>
+                  <li>
+                    <a href="/adopt">Adopt</a>
+                  </li>
+                  <li>
+                    <a href="/donate">Donate</a>
+                  </li>
+                  <li>
+                    <a href="/contact">Contact</a>
+                  </li>
+                  <li>
+                    <a href={`/user/${user.username}`}>{user.first_name}</a>
+                  </li>
+                </ul>
+                <div className="dropDownLogBtnContainer">
+                  <button className="dropDownLogoutBtn" onClick={this.logout}>
+                    Logout
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <ul>
+                  <li>
+                    <a href="/">Home</a>
+                  </li>
+                  <li>
+                    <a href="/adopt">Adopt</a>
+                  </li>
+                  <li>
+                    <a href="/donate">Donate</a>
+                  </li>
+                  <li>
+                    <a href="/contact">Contact</a>
+                  </li>
+                </ul>
+                <div className="dropDownLogBtnContainer">
+                  <button className="dropDownLoginBtn" onClick={this.login}>
+                    Login
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </header>
         <div className="siteContentsContainer">
-          <div className="dropDownMenuContainer">
-            <div className="dropDownBtnContainer">
-              <button className="dropDownMenuBtn" onClick={this.toggleMenu}>
-                Menu
-              </button>
-            </div>
-            <div
-              className={
-                !this.state.showMenu ? "showDropDownMenu" : "hideDropDownMenu"
-              }
-            >
-              {user ? (
-                <div>
-                  <ul>
-                    <li>
-                      <a href="/">Home</a>
-                    </li>
-                    <li>
-                      <a href="/adopt">Adopt</a>
-                    </li>
-                    <li>
-                      <a href="/donate">Donate</a>
-                    </li>
-                    <li>
-                      <a href="/contact">Contact</a>
-                    </li>
-                    <li>
-                      <a href={`/user/${user.username}`}>{user.first_name}</a>
-                    </li>
-                  </ul>
-                  <div className="dropDownLogBtnContainer">
-                    <button className="dropDownLogoutBtn" onClick={this.logout}>
-                      Logout
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <ul>
-                    <li>
-                      <a href="/">Home</a>
-                    </li>
-                    <li>
-                      <a href="/adopt">Adopt</a>
-                    </li>
-                    <li>
-                      <a href="/donate">Donate</a>
-                    </li>
-                    <li>
-                      <a href="/contact">Contact</a>
-                    </li>
-                  </ul>
-                  <div className="dropDownLogBtnContainer">
-                    <button className="dropDownLoginBtn" onClick={this.login}>
-                      Login
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="mainDisplay">
-              <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route path="/user" component={UserProfile} />
-                <Route path="/adopt" component={Adopt} />
-                <Route exact path="/contact" component={Contact} />
-                <Route exact path="/donate" component={Donate} />
-                <Route path="/animalprofile/:id" component={AnimalProfile} />
-              </Switch>
-            </div>
+          <div className="mainDisplay">
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route path="/user" component={UserProfile} />
+              <Route path="/adopt" component={Adopt} />
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/donate" component={Donate} />
+              <Route path="/animalprofile/:id" component={AnimalProfile} />
+            </Switch>
           </div>
         </div>
       </div>

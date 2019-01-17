@@ -17,6 +17,18 @@ body {
   align-items: center;
 }
 
+header {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(37, 42, 49);
+  position: fixed;
+  top: 0px;
+  z-index: 998;
+}
+
 .siteContentsContainer {
   width: 100%;
   height: 100%;
@@ -27,17 +39,7 @@ body {
   height: 100%;
   display: flex;
   position: relative;
-}
-
-header {
-  width: 100%;
-  height: 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgb(37, 42, 49);
-  position: fixed;
-  z-index: 998;
+  top: 0px;
 }
 
 .dropDownMenuContainer {
@@ -68,6 +70,7 @@ header {
 }
 
 .loginButton {
+  cursor: pointer;
   height: 30px;
   background-color: rgb(47, 255, 47);
   border-radius: 7px;
@@ -82,6 +85,7 @@ header {
 }
 
 .logoutButton {
+  cursor: pointer;
   height: 30px;
   background-color: rgb(255, 0, 0);
   border-radius: 7px;
@@ -211,6 +215,11 @@ path {
   z-index: 999;
 }
 
+.animalModalBtn {
+  cursor: pointer;
+  outline: none;
+}
+
 .filterMenuContainer {
   display: flex;
   position: relative;
@@ -248,12 +257,14 @@ path {
   display: flex;
   position: relative;
   justify-content: center;
+  cursor: pointer;
   height: 35px;
   width: 105px;
   background-color: rgb(26, 124, 236);
   border-radius: 7px;
   margin-left: 15px;
   margin-top: 25px;
+  outline: none;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -264,14 +275,6 @@ path {
 
 .adoptFilterBtn:active {
   box-shadow: #e0e0e0 1px 1px 0;
-}
-
-.resetBtnContainer {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 .filterP {
@@ -301,6 +304,7 @@ path {
 }
 
 .filterOption1 {
+  cursor: pointer;
   display: flex;
   position: relative;
   width: 200px;
@@ -326,12 +330,14 @@ path {
 }
 
 .adoptBtns {
+  cursor: pointer;
+  outline: none;
   height: 35px;
   width: 105px;
   background-color: rgb(26, 124, 236);
   border-radius: 7px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-left: 75px;
+  margin-right: 75px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -606,9 +612,9 @@ path {
   font-weight: bold;
   letter-spacing: 2px;
   margin: 5px;
-  text-shadow: 1.25px 1.25px 0 black, 1.25px -1.25px 0 black,
-    -1.25px 1.25px 0 black, -1.25px -1.25px 0 black, 1.25px 0px 0 black,
-    0px 1.25px 0 black, -1.25px 0px 0 black, 0px -1.25px 0 black;
+  text-shadow: 0.5px 0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black,
+    -0.5px -0.5px 0 black, 0.5px 0px 0 black, 0px 0.5px 0 black,
+    -0.5px 0px 0 black, 0px -0.5px 0 black;
 }
 
 .warningText2 {
@@ -621,6 +627,9 @@ path {
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 2px;
+  text-shadow: 0.45px 0.45px 0 white, 0.45px -0.45px 0 white,
+    -0.45px 0.45px 0 white, -0.45px -0.45px 0 white, 0.45px 0px 0 white,
+    0px 0.45px 0 white, -0.45px 0px 0 white, 0px -0.45px 0 white;
   margin: 5px;
 }
 
@@ -724,6 +733,8 @@ path {
 
 .contactSubmitButton {
   height: 35px;
+  width: 105px;
+  outline: none;
   background-color: rgb(26, 124, 236);
   border-radius: 7px;
   font-size: 20px;
@@ -740,8 +751,9 @@ path {
 
 .userProfilePageContainer1 {
   width: 100vw;
-  height: calc(100vh - 48px);
+  height: calc(100% - 48px);
   display: flex;
+  flex-direction: column;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -750,8 +762,9 @@ path {
 
 .userProfilePageContainer2 {
   width: 100vw;
-  height: calc(100vh - 48px);
+  height: calc(100% - 48px);
   display: flex;
+  flex-direction: column;
   position: relative;
   justify-content: center;
   align-content: space-between;
@@ -762,12 +775,12 @@ path {
   width: 100%;
   height: 50px;
   display: flex;
-  position: absolute;
+  position: relative;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  position: fixed;
   z-index: 999;
+  top: 30px;
 }
 
 .editBtnContainer {
@@ -777,12 +790,15 @@ path {
 
 .editProfileBtn {
   display: flex;
-  position: relative;
+  /* position: relative; */
   z-index: 999;
-  height: 30px;
+  width: 120px;
+  height: 55px;
+  outline: none;
+  cursor: pointer;
   background-color: rgb(47, 255, 47);
   border-radius: 7px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 14px;
@@ -801,11 +817,14 @@ path {
   display: flex;
   position: relative;
   z-index: 999;
-  height: 30px;
+  outline: none;
+  cursor: pointer;
   background-color: rgb(47, 255, 47);
+  width: 120px;
+  height: 55px;
   border-radius: 7px;
   color: black;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 14px;
@@ -824,11 +843,14 @@ path {
   display: flex;
   position: relative;
   z-index: 999;
-  height: 30px;
+  width: 120px;
+  height: 55px;
+  outline: none;
+  cursor: pointer;
   background-color: rgb(255, 187, 0);
   border-radius: 7px;
   color: black;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 14px;
@@ -847,11 +869,14 @@ path {
   display: flex;
   position: relative;
   z-index: 999;
-  height: 30px;
+  width: 120px;
+  height: 55px;
+  outline: none;
+  cursor: pointer;
   background-color: rgb(255, 0, 0);
   border-radius: 7px;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 14px;
@@ -864,7 +889,7 @@ path {
 .userProfileContainer {
   width: 100vw;
   height: calc(100% - 48px);
-  top: 48px;
+  top: 100px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -1089,6 +1114,7 @@ path {
   display: flex;
   position: relative;
   z-index: 999;
+  margin-top: 20px;
   margin-bottom: 10px;
   font-family: "Muli", sans-serif;
   font-size: 20px;
@@ -1099,13 +1125,21 @@ path {
     0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (min-width: 601px) and (max-width: 1100px) {
   .siteName {
     font-size: 40px;
   }
 }
 
-@media only screen and (min-width: 401px) and (max-width: 960px) {
+@media only screen and (min-width: 961px) {
+  .dropDownBtnContainer,
+  .showDropDownMenu,
+  .hideDropDownMenu {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 960px) {
   header {
     flex-direction: column;
     justify-content: center;
@@ -1114,20 +1148,19 @@ path {
 
   .siteNameContainer {
     left: 0px;
+    width: 100%;
+    justify-content: center;
+    background: black;
   }
 
   .menu {
     display: none;
   }
 
-  .dropDownMenuContainer {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    justify-content: center;
-    width: 100vw;
+  .siteContentsContainer {
+    width: 100%;
+    /* height: calc(100% - 40px); */
     top: 40px;
-    z-index: 997;
   }
 
   .dropDownBtnContainer {
@@ -1143,36 +1176,28 @@ path {
     cursor: pointer;
     background-color: #4f8edb;
     color: white;
-    font-size: 22px;
+    font-size: 32px;
     font-weight: bold;
     text-align: center;
     letter-spacing: 2px;
     text-decoration: none;
     border: none;
-  }
-
-  .hideDropDownMenu {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    z-index: -500;
-    transform: translate(0, -200px);
-    transition: 0.5s;
+    outline: none;
   }
 
   .showDropDownMenu {
     display: flex;
-    position: relative;
+    position: absolute;
     justify-content: center;
     flex-direction: column;
-    width: 100%;
-    transition: 0.5s;
-    transform: translate(0, 0);
+    z-index: 997;
+    width: 100vw;
+    top: 38px;
+    transition: 0.75s;
+    transform: translate(0, 40px);
   }
 
-  .dropDownMenuContainer ul {
+  .showDropDownMenu ul {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -1183,7 +1208,7 @@ path {
     padding-bottom: 10px;
   }
 
-  .dropDownMenuContainer ul li {
+  .showDropDownMenu ul li {
     display: flex;
     position: relative;
     justify-content: center;
@@ -1191,7 +1216,51 @@ path {
     margin-top: 10px;
   }
 
-  .dropDownMenuContainer ul li a {
+  .showDropDownMenu ul li a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #4f8edb;
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .hideDropDownMenu {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    z-index: 997;
+    top: 32px;
+    transform: translate(0, -200px);
+    transition: 0.75s;
+  }
+
+  .hideDropDownMenu ul {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    padding-bottom: 10px;
+  }
+
+  .hideDropDownMenu ul li {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .hideDropDownMenu ul li a {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -1201,6 +1270,7 @@ path {
     font-weight: bold;
     letter-spacing: 2px;
     text-decoration: none;
+    outline: none;
   }
 
   .dropDownLogBtnContainer {
@@ -1214,23 +1284,207 @@ path {
   .dropDownLoginBtn {
     width: 100%;
     background-color: rgb(47, 255, 47);
-    font-size: 22px;
+    font-size: 32px;
     font-weight: bold;
     text-align: center;
     letter-spacing: 2px;
     text-decoration: none;
     border: none;
+    outline: none;
   }
 
   .dropDownLogoutBtn {
     width: 100%;
     background-color: red;
     color: white;
-    font-size: 22px;
+    font-size: 32px;
     font-weight: bold;
     text-align: center;
     letter-spacing: 2px;
     text-decoration: none;
     border: none;
+    outline: none;
+  }
+
+  .homepageContainer {
+    top: 300px;
+    width: 100vw;
+    height: calc(100% - 60px);
+  }
+
+  .adoptionPage {
+    min-height: 100vh;
+    display: initial;
+    top: 75px;
+    overflow: scroll;
+  }
+
+  .animalProfileModal {
+    left: 0px;
+  }
+
+  .animalProfilePicContainer {
+    min-height: 350px;
+    display: flex;
+    justify-items: center;
+  }
+
+  .profileAnimalImage {
+    width: 350px;
+    min-height: 350px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+
+  .filterMenuContainer {
+    flex-wrap: wrap-reverse;
+    top: 10px;
+  }
+
+  .adoptFilterBtn {
+    height: 40px;
+    width: 125px;
+    font-size: 24px;
+  }
+
+  .filterP {
+    font-size: 24px;
+  }
+
+  .dropDownFilter {
+    font-size: 18px;
+  }
+
+  .filterOption1 {
+    font-size: 18px;
+  }
+
+  .adoptBtnsContainer1 {
+    top: 0px;
+    z-index: 980;
+  }
+
+  .adoptBtnsContainer2 {
+    bottom: 5px;
+    z-index: 980;
+  }
+
+  .adoptBtns {
+    height: 40px;
+    width: 125px;
+    font-size: 24px;
+  }
+
+  .animalsContainer {
+    position: initial;
+    top: 25px;
+    margin-bottom: 15px;
+  }
+
+  .singleAnimalContainer {
+    width: 250px;
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+
+  .animalImageContainer {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .miniAnimalImage {
+    width: 250px;
+    min-height: 250px;
+    max-height: 250px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .animalInfoContainer {
+    padding-top: 5px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .miniAnimalInfo1 {
+    font-size: 22px;
+  }
+
+  .miniAnimalInfo2 {
+    font-size: 22px;
+    margin-top: 5px;
+  }
+
+  .donationFormContainer {
+    top: 100px;
+  }
+
+  .donateP1 {
+    z-index: 995;
+  }
+
+  .donateP2 {
+    z-index: 995;
+  }
+
+  .donateInput {
+    font-size: 24px;
+  }
+
+  .donateInputMessage {
+    font-size: 24px;
+  }
+
+  .contactFormContainer {
+    top: 100px;
+  }
+
+  .contactP1 {
+    z-index: 995;
+  }
+
+  .contactP2 {
+    z-index: 995;
+  }
+
+  .contactInput,
+  .contactInputSubject,
+  .contactInputMessage {
+    font-size: 24px;
+  }
+
+  .contactSubmitButton {
+    height: 40px;
+    width: 125px;
+    font-size: 24px;
+  }
+
+  .userProfilePageContainer1,
+  .userProfilePageContainer2 {
+    top: 100px;
+  }
+
+  .userProfilePic,
+  .buttonsContainer,
+  .userP1,
+  .userP2,
+  .userP3,
+  .userP4,
+  .editUserP1,
+  .editUserP2 {
+    z-index: 995;
+  }
+
+  .editProfileBtn,
+  .saveProfileBtn,
+  .cancelEditBtn,
+  .deleteUserBtn {
+    height: 65px;
+    width: 150px;
+    font-size: 24px;
+    z-index: 995;
   }
 }

@@ -224,7 +224,7 @@ app.post("/api/contactEmail", (req, res) => {
                     <tr>
                       <td align="center" bgcolor="#7FBDDA">
                         <b>PAWS FUR LOVE &copy; <br>
-                        &reg; Christoper Garcia, Earth C-137 &infin;</b>
+                        &reg; Christopher Garcia, Earth C-137 &infin;</b>
                       </td>
                     </tr>
                   </table>

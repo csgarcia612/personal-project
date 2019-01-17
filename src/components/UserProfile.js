@@ -167,7 +167,7 @@ class UserProfile extends Component {
                   className="cancelEditBtn"
                   onClick={this.cancelProfileEdit}
                 >
-                  CANCEL
+                  CANCEL EDIT
                 </button>
               </div>
               <div className="saveProfileBtnContainer">
