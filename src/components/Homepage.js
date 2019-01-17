@@ -16,7 +16,7 @@ export default class Homepage extends Component {
               />
               <text className="curvedText" width="500">
                 <textPath href="#curve">
-                  * Please Don't Shop . . . Just Adopt *
+                  * Please Dont Shop . . . Just Adopt *
                 </textPath>
               </text>
             </svg>
