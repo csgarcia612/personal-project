@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("showMenu", this.state.showMenu);
+    // console.log("showMenu", this.state.showMenu);
     const { user } = this.props;
     // console.log(user);
     return (

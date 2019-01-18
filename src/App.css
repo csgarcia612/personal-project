@@ -300,6 +300,7 @@ path {
   color: black;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   z-index: 990;
+  outline: none;
   /* appearance: none; */
 }
 
@@ -453,6 +454,7 @@ path {
 
 .animalProfilePicContainer {
   min-height: 500px;
+  max-height: 600px;
   display: flex;
   justify-items: center;
 }
@@ -460,6 +462,7 @@ path {
 .profileAnimalImage {
   width: 500px;
   min-height: 500px;
+  max-height: 600px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 }
@@ -513,11 +516,6 @@ path {
   flex-direction: column;
   top: 60px;
   padding-bottom: 15px;
-}
-
-.donationContainer {
-  color: red;
-  font-size: 40px;
 }
 
 .donateP1 {
@@ -1125,9 +1123,90 @@ path {
     0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
 }
 
+@media only screen and (min-width: 1301px) and (max-width: 1350px) {
+  .animalProfileModal {
+    top: 10%;
+    left: 10%;
+  }
+}
+
+@media only screen and (min-width: 1251px) and (max-width: 1300px) {
+  .animalProfileModal {
+    top: 8%;
+    left: 8%;
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1250px) {
+  .animalProfileModal {
+    top: 7%;
+    left: 6%;
+  }
+}
+
+@media only screen and (min-width: 1176px) and (max-width: 1200px) {
+  .animalProfileModal {
+    top: 5%;
+    left: 4%;
+  }
+}
+
+@media only screen and (min-width: 1151px) and (max-width: 1175px) {
+  .animalProfileModal {
+    top: 5%;
+    left: 2%;
+  }
+}
+
+@media only screen and (min-width: 1126px) and (max-width: 1150px) {
+  .animalProfileModal {
+    top: 5%;
+    left: 1%;
+  }
+}
+
+@media only screen and (min-width: 961px) and (max-width: 1125px) {
+  .animalProfileModal {
+    top: 5%;
+    left: 0%;
+  }
+}
+
 @media only screen and (min-width: 601px) and (max-width: 1100px) {
   .siteName {
     font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 961px) and (max-width: 1100px) {
+  .singleAnimalContainer {
+    width: 300px;
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+
+  .miniAnimalImage {
+    width: 300px;
+    min-height: 250px;
+    max-height: 250px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .animalInfoContainer {
+    padding-top: 5px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .miniAnimalInfo1 {
+    font-size: 22px;
+  }
+
+  .miniAnimalInfo2 {
+    font-size: 22px;
+    margin-top: 5px;
   }
 }
 
@@ -1342,6 +1421,8 @@ path {
   }
 
   .adoptFilterBtn {
+    margin-left: 0px;
+    margin-top: 25px;
     height: 40px;
     width: 125px;
     font-size: 24px;
@@ -1486,5 +1567,481 @@ path {
     width: 150px;
     font-size: 24px;
     z-index: 995;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
+
+  .siteName {
+    font-size: 24px;
+  }
+
+  .siteContentsContainer {
+    top: 20px;
+  }
+
+  .mainDisplay {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .dropDownMenuBtn {
+    width: 100%;
+    cursor: pointer;
+    background-color: #4f8edb;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+  }
+
+  .showDropDownMenu {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 997;
+    width: 100vw;
+    top: 8px;
+    transition: 0.75s;
+    transform: translate(0, 40px);
+  }
+
+  .showDropDownMenu ul {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    padding-bottom: 10px;
+  }
+
+  .showDropDownMenu ul li {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .showDropDownMenu ul li a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #4f8edb;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .hideDropDownMenu {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    z-index: 997;
+    top: 32px;
+    transform: translate(0, -200px);
+    transition: 0.75s;
+  }
+
+  .hideDropDownMenu ul {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    padding-bottom: 10px;
+  }
+
+  .hideDropDownMenu ul li a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #4f8edb;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .dropDownLoginBtn {
+    width: 100%;
+    background-color: rgb(47, 255, 47);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+  }
+
+  .dropDownLogoutBtn {
+    width: 100%;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+  }
+
+  .homepageContainer {
+    top: 0px;
+    /* width: 100vw; */
+    height: 100vh;
+  }
+
+  svg {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    position: absolute;
+    z-index: 990;
+    justify-content: center;
+  }
+
+  path {
+    width: 100%;
+    fill: transparent;
+    overflow: visible;
+    z-index: 999;
+    display: flex;
+    position: relative;
+    justify-content: center;
+  }
+
+  .curvedText {
+    font-size: 43.35px;
+    overflow: visible;
+    text-align: center;
+  }
+
+  .gifContainer {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .adoptionPage {
+    min-height: 100vh;
+    width: 100%;
+    top: 50px;
+    overflow: scroll;
+  }
+
+  .animalProfileModal {
+    left: 0px;
+  }
+
+  .animalProfileContainer {
+    max-height: 90vh;
+    flex-direction: column;
+    top: 0px;
+  }
+
+  .animalProfilePicContainer {
+    min-height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profileAnimalImage {
+    width: 250px;
+    min-height: 250px;
+    max-height: 275px;
+    border-radius: 15px;
+  }
+
+  .animalProfileInfoContainer {
+    font-size: 22px;
+  }
+
+  .animalProfileInfoContainer > p {
+    margin: 5px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .animalProfileShelterContainer {
+    font-size: 22px;
+    margin-top: 15px;
+  }
+
+  .animalProfileShelterContainer > p {
+    margin: 5px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .shelterAddressContainer {
+    font-size: 22px;
+  }
+
+  .shelterAddressContainer > p {
+    margin-top: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .filterContainer {
+    font: 12px;
+    margin: 10px;
+  }
+
+  .filterMenuContainer {
+    flex-wrap: wrap-reverse;
+    top: 0px;
+    justify-content: center;
+  }
+
+  .adoptFilterBtn {
+    height: 35px;
+    width: 100px;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .filterP {
+    font-size: 18px;
+  }
+
+  .dropDownFilter {
+    font-size: 16px;
+    height: 24;
+    width: 100px;
+  }
+
+  .filterOption1 {
+    width: 100px;
+    font-size: 16px;
+    text-overflow: ellipsis;
+  }
+
+  .adoptBtnsContainer1 {
+    top: 0px;
+    z-index: 980;
+    padding-top: 15px;
+  }
+
+  .adoptBtnsContainer2 {
+    bottom: 5px;
+    z-index: 980;
+  }
+
+  .adoptBtns {
+    margin-left: 25px;
+    margin-right: 25px;
+    height: 35px;
+    width: 100px;
+    font-size: 18px;
+  }
+
+  .animalsContainer {
+    position: initial;
+    top: 25px;
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+
+  .singleAnimalContainer {
+    width: 175px;
+    margin-top: 15px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 7px;
+  }
+
+  .animalImageContainer {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .miniAnimalImage {
+    width: 175px;
+    min-height: 175px;
+    max-height: 175px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+  }
+
+  .animalInfoContainer {
+    padding-top: 3px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .miniAnimalInfo1 {
+    font-size: 16px;
+  }
+
+  .miniAnimalInfo2 {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  .donationFormContainer {
+    justify-content: center;
+    width: 100%;
+    top: 60px;
+  }
+
+  .donatorInfoContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .donatorInfoContainer div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .donateP1 {
+    z-index: 995;
+    font-size: 20px;
+  }
+
+  .donateP2 {
+    z-index: 995;
+    font-size: 20px;
+  }
+
+  .donateInput {
+    width: 360px;
+    font-size: 20px;
+    border-radius: 7px;
+  }
+
+  .donateInputMessage {
+    width: 360px;
+    height: 150px;
+    font-size: 20px;
+    border-radius: 7px;
+  }
+
+  .warningTextContainer {
+    width: 360px;
+  }
+
+  .warningText1,
+  .warningText2 {
+    font-size: 18px;
+  }
+
+  .contactFormContainer {
+    top: 60px;
+  }
+
+  .contactP1 {
+    z-index: 995;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  .contactP2 {
+    margin-top: 20px;
+    z-index: 995;
+    font-size: 20px;
+  }
+
+  .contactInput,
+  .contactInputSubject {
+    width: 360px;
+    font-size: 20px;
+    border-radius: 7px;
+  }
+
+  .contactInputMessage {
+    width: 360px;
+    height: 250px;
+    font-size: 20px;
+    border-radius: 7px;
+  }
+
+  .contactSubmitButton {
+    height: 35px;
+    width: 100px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .userProfilePageContainer1,
+  .userProfilePageContainer2 {
+    top: 40px;
+    height: 100vh;
+  }
+
+  .userProfilePic,
+  .buttonsContainer,
+  .userP1,
+  .userP2,
+  .userP3,
+  .userP4,
+  .editUserP1,
+  .editUserP2 {
+    z-index: 995;
+  }
+
+  .editProfileBtn,
+  .saveProfileBtn,
+  .cancelEditBtn,
+  .deleteUserBtn {
+    height: 50px;
+    width: 105px;
+    font-size: 18px;
+    z-index: 995;
+  }
+
+  .userProfileContainer {
+    width: 360px;
+    justify-content: center;
+  }
+
+  .userPicInfoContainer {
+    flex-direction: column;
+    max-width: 360px;
+  }
+
+  .userProfilePicContainer {
+    width: 175px;
+    min-height: 175px;
+    max-height: 175px;
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
