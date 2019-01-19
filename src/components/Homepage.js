@@ -22,7 +22,7 @@ export default class Homepage extends Component {
             </svg>
             <img
               className="dogGif"
-              src="https://media.giphy.com/media/26mkhNrAhHJ0fGbqE/source.gif"
+              src="../images/smiling-dog.gif"
               alt="Smiling dog reads text rendered above"
             />
           </div>

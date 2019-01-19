@@ -115,7 +115,8 @@ class Adopt extends Component {
       });
     });
     this.setState({
-      filteredList: filteredAnimals
+      filteredList: filteredAnimals,
+      currentPage: 1
     });
     // console.log("Filtered List:", this.state.filteredList);
   }

@@ -99,9 +99,9 @@ class UserProfile extends Component {
     } = this.state;
     const { user } = this.props;
     return (
-      <div className="userProfilePageContainer">
+      <div className="userProfilePageMainContainer">
         {allowEdit === false ? (
-          <div className="userProfilePageContainer2">
+          <div className="userProfilePageContainer1">
             <div className="buttonsContainer">
               <div className="editBtnContainer">
                 <button
@@ -144,12 +144,10 @@ class UserProfile extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="userBioContainer">
-                  <div className="BioContainer">
-                    <p className="userP4">
-                      BIO: {user.bio ? user.bio : "No Bio Saved"}
-                    </p>
-                  </div>
+                <div className="bioContainer">
+                  <p className="userP4">
+                    BIO: {user.bio ? user.bio : "No Bio Saved"}
+                  </p>
                 </div>
               </div>
             )}
@@ -239,18 +237,14 @@ class UserProfile extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="userBioContainer1">
-                  <div className="userBioContainer2">
-                    <div className="bioContainer">
-                      <p className="editUserP2">BIO: </p>
-                      <textarea
-                        className="editUserInput2"
-                        maxLength="750"
-                        value={bio ? bio : "No Bio Saved"}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                  </div>
+                <div className="bioContainer">
+                  <p className="editUserP2">BIO: </p>
+                  <textarea
+                    className="editUserInput2"
+                    maxLength="750"
+                    value={bio ? bio : "No Bio Saved"}
+                    onChange={this.handleChange}
+                  />
                 </div>
               </div>
             )}
