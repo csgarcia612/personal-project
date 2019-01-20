@@ -15,9 +15,22 @@ export default class Homepage extends Component {
                 d="M45,250 a1,1 0 1,1 410,0"
               />
               <text className="curvedText" width="500">
-                <textPath href="#curve">
+                <textPath
+                  href="#curve"
+                  onError={e => {
+                    e.target.onerror = null;
+                    e.target.src;
+                  }}
+                >
                   * Please Don't Shop . . . Just Adopt *
                 </textPath>
+                onError=
+                {e => {
+                  e.target.onerror = null;
+                  e.target.src =
+                    "http://profilepicturesdp.com/wp-content/uploads/2018/06/default-profile-picture-5.jpg";
+                }}
+                alt="User Profile Imagery"
               </text>
             </svg>
             <img

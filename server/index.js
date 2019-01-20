@@ -113,6 +113,9 @@ app.get("/callback", (req, res) => {
           // console.log(user.name.split(" "));
           // console.log("user info", user);
           let splitName = user.name.split(" ");
+          if (splitName.length === 1) {
+            splitName.push("Moorehead");
+          }
           return req.app
             .get("db")
             .create_user([

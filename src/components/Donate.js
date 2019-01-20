@@ -108,7 +108,10 @@ class Donate extends Component {
             email={email}
             amount={amount * 100}
             allowRememberMe={false}
-          />
+            className="stripeBtn"
+          >
+            <button>DONATE</button>
+          </StripeCheckout>
         </div>
         <div className="warningTextContainer">
           <p className="warningText1">
