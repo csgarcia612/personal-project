@@ -71,6 +71,7 @@ header {
 
 .loginButton {
   cursor: pointer;
+  outline: none;
   height: 30px;
   background-color: rgb(47, 255, 47);
   border-radius: 7px;
@@ -86,6 +87,7 @@ header {
 
 .logoutButton {
   cursor: pointer;
+  outline: none;
   height: 30px;
   background-color: rgb(255, 0, 0);
   border-radius: 7px;
@@ -332,6 +334,7 @@ path {
 }
 
 .adoptBtns {
+  z-index: 995;
   cursor: pointer;
   outline: none;
   height: 35px;
@@ -379,6 +382,9 @@ path {
   align-items: center;
   width: 450px;
   margin-top: 15px;
+  box-shadow: #7fbdda 0px 0px 3px, #7fbdda 0px 0px 8px, #7fbdda 0px 0px 13px,
+    #7fbdda 0px 0px 18px, #7fbdda 0px 0px 28px, #7fbdda 0px 0px 38px,
+    #7fbdda 0px 0px 48px, #7fbdda 0px 0px 73px;
 }
 
 .animalImageContainer {
@@ -552,6 +558,8 @@ path {
 }
 
 .donateInput {
+  cursor: text;
+  outline: none;
   display: flex;
   position: relative;
   width: 600px;
@@ -568,6 +576,8 @@ path {
 }
 
 .donateInputMessage {
+  cursor: text;
+  outline: none;
   display: flex;
   position: relative;
   width: 600px;
@@ -676,6 +686,8 @@ path {
 }
 
 .contactInput {
+  cursor: text;
+  outline: none;
   display: flex;
   position: relative;
   width: 600px;
@@ -692,6 +704,8 @@ path {
 }
 
 .contactInputSubject {
+  cursor: text;
+  outline: none;
   display: flex;
   position: relative;
   width: 500px;
@@ -708,6 +722,8 @@ path {
 }
 
 .contactInputMessage {
+  cursor: text;
+  outline: none;
   display: flex;
   position: relative;
   width: 600px;
@@ -734,6 +750,8 @@ path {
 }
 
 .contactSubmitButton {
+  cursor: pointer;
+  outline: none;
   height: 35px;
   width: 105px;
   outline: none;
@@ -1069,6 +1087,8 @@ path {
 }
 
 .editUserInput1 {
+  cursor: text;
+  outline: none;
   display: flex;
   position: relative;
   width: 300px;
@@ -1081,6 +1101,8 @@ path {
 }
 
 .editUserInput2 {
+  cursor: text;
+  outline: none;
   display: flex;
   position: relative;
   width: 600px;

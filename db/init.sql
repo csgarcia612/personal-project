@@ -27,8 +27,8 @@ animal_id integer
 );
 
 create table if not exists shelters(
-id serial primary key,
-shelter_id text,
+id serial,
+shelter_id text primary key,
 name text,
 phone text,
 email text,
