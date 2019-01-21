@@ -538,7 +538,7 @@ path {
     -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
     0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
   margin-bottom: 4px;
-  z-index: 999;
+  z-index: 997;
 }
 
 .donateP2 {
@@ -554,7 +554,7 @@ path {
     -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
     0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
   margin-bottom: 8px;
-  z-index: 999;
+  z-index: 997;
 }
 
 .donateInput {
@@ -666,7 +666,7 @@ path {
     -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
     0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
   margin-bottom: 4px;
-  z-index: 999;
+  z-index: 997;
 }
 
 .contactP2 {
@@ -682,7 +682,7 @@ path {
     -1.25px 1.25px 0 #ffffff, -1.25px -1.25px 0 #ffffff, 1.25px 0px 0 #ffffff,
     0px 1.25px 0 #ffffff, -1.25px 0px 0 #ffffff, 0px -1.25px 0 #ffffff;
   margin-bottom: 8px;
-  z-index: 999;
+  z-index: 997;
 }
 
 .contactInput {
