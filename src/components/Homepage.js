@@ -3,8 +3,10 @@ import React, { Component } from "react";
 export default class Homepage extends Component {
   render() {
     let isSafari =
-      /Safari/.test(navigator.userAgent) &&
-      /Apple Computer, Inc/.test(navigator.vendor);
+      // /Safari/.test(navigator.userAgent) &&
+      // /Apple Computer, Inc/.test(navigator.vendor);
+      /iPhone/.test(navigator.userAgent) ||
+      (/Safari/.test(navigator.userAgent) && /Mac/.test(navigator.userAgent));
     return (
       <div className="homepageContainer">
         <div className="welcomeBannerContainer">
@@ -19,7 +21,7 @@ export default class Homepage extends Component {
                   d="M45,250 a1,1 0 1,1 410,0"
                 />
                 <text className="curvedText" width="500">
-                  <textPath xlinkhref="#curve">
+                  <textPath xlinkHref="#curve">
                     * Please Don't Shop . . . Just Adopt *
                   </textPath>
                 </text>
