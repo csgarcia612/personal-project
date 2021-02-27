@@ -1,10 +1,10 @@
 const INITIAL_STATE = {
-  user: null
+  user: null,
 };
 
-const SET_USER = "SET_USER";
+const SET_USER = 'SET_USER';
 
-export default function(state = INITIAL_STATE, action) {
+export default function reducer(state = INITIAL_STATE, action) {
   // console.log("reducer hit", action.type);
   switch (action.type) {
     case SET_USER:
@@ -19,7 +19,7 @@ export function setUser(user) {
   // console.log(user);
   return {
     type: SET_USER,
-    payload: user
+    payload: user,
   };
 }
 

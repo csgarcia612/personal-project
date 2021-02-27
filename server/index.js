@@ -1,55 +1,74 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const session = require("express-session");
-const massive = require("massive");
-const axios = require("axios");
-const dotenv = require("dotenv");
+const express = require('express');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const massive = require('massive');
+const axios = require('axios');
+const dotenv = require('dotenv');
 dotenv.config();
-const connect = require("connect-pg-simple");
-const animalsController = require("./controllers/animalsController");
-const usersController = require("./controllers/usersController");
+const connect = require('connect-pg-simple');
+const animalsController = require('./controllers/animalsController');
+const usersController = require('./controllers/usersController');
 // const sheltersController = require("./controllers/sheltersController");
-const nodemailer = require("nodemailer");
-const stripe = require("stripe")(process.env.STRIPE_SECRET);
+const nodemailer = require('nodemailer');
+const stripe = require('stripe')(process.env.STRIPE_SECRET);
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
+  host: 'smtp.ethereal.email',
   port: 587,
   auth: {
-    user: "owurz2fxwek6bz3w@ethereal.email",
-    pass: "GyFNSnwmxt98uNbcdN"
-  }
+    user: 'owurz2fxwek6bz3w@ethereal.email',
+    pass: 'GyFNSnwmxt98uNbcdN',
+  },
 });
 
-transporter.verify(function(error, success) {
+transporter.verify(function (error, success) {
   if (error) {
     console.log(error);
   } else {
-    console.log("Server is ready to take our messages");
+    console.log('Server is ready to take our messages');
   }
 });
 
-massive(process.env.CONNECTION_STRING)
-  .then(db => {
-    app.set("db", db);
+massive({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE,
+  user: process.env.DB_USER,
+  password: process.env.DB_SECRET,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+})
+  .then((db) => {
+    exports.database = db;
+    console.log('Database Connection : ONLINE');
   })
-  .catch(error => {
-    console.log("Error connecting to db", error);
+  .catch((error) => {
+    console.log(('😡 Error with Massive DB Connection 😡', error));
   });
+
+// massive(process.env.CONNECTION_STRING)
+//   .then((db) => {
+//     app.set('db', db);
+//   })
+//   .catch((error) => {
+//     console.log('Error connecting to db', error);
+//   });
 
 const app = express();
 app.use(bodyParser.json());
+
 app.use(
   session({
     store: new (connect(session))({
-      conString: process.env.CONNECTION_STRING
+      conString: process.env.CONNECTION_STRING,
     }),
     secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 2
-    }
+      maxAge: 1000 * 60 * 60 * 24 * 2,
+    },
   })
 );
 
@@ -59,20 +78,20 @@ app.use(
 // Used for retrieving shelters data from 3rd party api and posting to my table db
 // app.post("/api/shelters", sheltersController.postApiDataToDb);
 
-app.get("/api/animals", animalsController.getAnimals);
+app.get('/api/animals', animalsController.getAnimals);
 
-app.get("/callback", (req, res) => {
+app.get('/callback', (req, res) => {
   // console.log("/callback");
   let redirect_uri =
-    process.env.HOST == "localhost"
+    process.env.HOST == 'localhost'
       ? `http://${req.headers.host}/callback`
       : `https://${req.headers.host}/callback`;
   const payload = {
     client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
     client_secret: process.env.AUTH0_CLIENT_SECRET,
     code: req.query.code,
-    grant_type: "authorization_code",
-    redirect_uri
+    grant_type: 'authorization_code',
+    redirect_uri,
   };
 
   function tradeCodeForAccessToken() {
@@ -84,9 +103,7 @@ app.get("/callback", (req, res) => {
 
   function tradeAccessTokenForUserInfo(response) {
     return axios.get(
-      `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo?access_token=${
-        response.data.access_token
-      }`
+      `https://${process.env.REACT_APP_AUTH0_DOMAIN}/userinfo?access_token=${response.data.access_token}`
     );
   }
 
@@ -94,9 +111,9 @@ app.get("/callback", (req, res) => {
     // console.log("user info", response.data);
     const user = response.data;
     return req.app
-      .get("db")
+      .get('db')
       .find_user_by_auth0_id([user.sub])
-      .then(singleUser => {
+      .then((singleUser) => {
         if (singleUser.length) {
           req.session.user = {
             auth0_id: singleUser[0].auth0_id,
@@ -105,19 +122,19 @@ app.get("/callback", (req, res) => {
             last_name: singleUser[0].last_name,
             email: singleUser[0].email,
             image_url: singleUser[0].image_url,
-            bio: singleUser[0].bio
+            bio: singleUser[0].bio,
           };
           // console.log(req.session);
-          res.redirect("/");
+          res.redirect('/');
         } else {
           // console.log(user.name.split(" "));
           // console.log("user info", user);
-          let splitName = user.name.split(" ");
+          let splitName = user.name.split(' ');
           if (splitName.length === 1) {
-            splitName.push("Moorehead");
+            splitName.push('Moorehead');
           }
           return req.app
-            .get("db")
+            .get('db')
             .create_user([
               user.sub,
               user.nickname,
@@ -125,12 +142,12 @@ app.get("/callback", (req, res) => {
               splitName[1],
               user.email,
               user.picture,
-              null
+              null,
             ])
-            .then(newlyCreatedUsers => {
+            .then((newlyCreatedUsers) => {
               req.session.user = newlyCreatedUsers[0];
               // console.log(req.session);
-              res.redirect("/");
+              res.redirect('/');
             });
         }
       });
@@ -139,22 +156,22 @@ app.get("/callback", (req, res) => {
   tradeCodeForAccessToken()
     .then(tradeAccessTokenForUserInfo)
     .then(storeUserInfoInDataBase)
-    .catch(error => {
-      console.log("error in /callback", error);
-      res.status(500).send("Something went wrong on the server.");
+    .catch((error) => {
+      console.log('error in /callback', error);
+      res.status(500).send('Something went wrong on the server.');
     });
 });
 
-app.post("/api/stripe", function(req, res, next) {
+app.post('/api/stripe', function (req, res, next) {
   console.log(req.body);
   const stripeToken = req.body.token.id;
   // console.log(stripeToken);
   stripe.charges.create(
     {
       amount: req.body.state.amount * 100,
-      currency: "usd",
-      description: "Test Stripe Credit Charge",
-      source: stripeToken
+      currency: 'usd',
+      description: 'Test Stripe Credit Charge',
+      source: stripeToken,
     },
     (error, charge) => {
       error ? res.status(500).send(error) : res.status(200).send(charge);
@@ -163,18 +180,18 @@ app.post("/api/stripe", function(req, res, next) {
   );
 });
 
-app.post("/api/contactEmail", (req, res) => {
+app.post('/api/contactEmail', (req, res) => {
   // console.log(req.body);
   const {
     contactName,
     contactEmailAddress,
     contactSubject,
-    contactMessage
+    contactMessage,
   } = req.body;
   const mailOptions = {
-    from: "smtp.ethereal.email",
-    to: "christophergarcia.developer@gmail.com",
-    subject: "Message From PawsFurLove User",
+    from: 'smtp.ethereal.email',
+    to: 'christophergarcia.developer@gmail.com',
+    subject: 'Message From PawsFurLove User',
     text: `Message from ${contactName} at ${contactEmailAddress}. The subject of the message is ${contactSubject}. The message is as follows: ${contactMessage}`,
     html: `
       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -237,35 +254,35 @@ app.post("/api/contactEmail", (req, res) => {
           </table>
         </body>
       </html>
-    `
+    `,
   };
 
-  transporter.sendMail(mailOptions, function(error, info) {
-    if (error) console.log("Error occurred with sending email", error);
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) console.log('Error occurred with sending email', error);
     else {
       // console.log("message info", info);
     }
   });
 });
 
-app.get("/api/user-data", (req, res) => {
+app.get('/api/user-data', (req, res) => {
   res.json({ user: req.session.user });
 });
 
-app.post("/api/logout", (req, res) => {
+app.post('/api/logout', (req, res) => {
   req.session.destroy();
-  res.send("Logged Out Successfully");
+  res.send('Logged Out Successfully');
 });
 
-app.put("/api/updateUser/:auth0_id", usersController.update);
+app.put('/api/updateUser/:auth0_id', usersController.update);
 
-app.delete("/api/deleteUser/:auth0_id", usersController.delete);
+app.delete('/api/deleteUser/:auth0_id', usersController.delete);
 
 app.use(express.static(`${__dirname}/../build`));
 
-const path = require("path");
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"));
+const path = require('path');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
 const PORT = 4000;
