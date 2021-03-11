@@ -40,7 +40,9 @@ massive({
   },
 })
   .then((db) => {
-    exports.database = db;
+    // exports.database = db;
+    app.set('db', db);
+
     console.log('Database Connection : ONLINE');
   })
   .catch((error) => {
@@ -58,10 +60,33 @@ massive({
 const app = express();
 app.use(bodyParser.json());
 
+// app.use(
+//   session({
+//     store: new (connect(session))({
+//       conString: process.env.CONNECTION_STRING,
+//     }),
+//     secret: process.env.SESSION_SECRET,
+//     saveUninitialized: false,
+//     resave: false,
+//     cookie: {
+//       maxAge: 1000 * 60 * 60 * 24 * 2,
+//     },
+//   })
+// );
+
 app.use(
   session({
     store: new (connect(session))({
-      conString: process.env.CONNECTION_STRING,
+      conObject: {
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
+        database: process.env.DB_DATABASE,
+        user: process.env.DB_USER,
+        password: process.env.DB_SECRET,
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
     }),
     secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
@@ -163,7 +188,7 @@ app.get('/callback', (req, res) => {
 });
 
 app.post('/api/stripe', function (req, res, next) {
-  console.log(req.body);
+  // console.log(req.body);
   const stripeToken = req.body.token.id;
   // console.log(stripeToken);
   stripe.charges.create(

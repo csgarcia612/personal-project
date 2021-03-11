@@ -22,13 +22,13 @@ module.exports = {
   //   }
   // },
   getAnimals: (req, res) => {
-    const dbInstance = req.app.get("db");
+    const dbInstance = req.app.get('db');
 
     dbInstance
       .get_animals_shelters()
-      .then(animals => res.status(200).send(animals))
-      .catch(error => {
-        res.status(500).send("Error with get_animals", error);
+      .then((animals) => res.status(200).send(animals))
+      .catch((error) => {
+        res.status(500).send('Error with get_animals', error);
       });
-  }
+  },
 };
