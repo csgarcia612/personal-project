@@ -207,12 +207,8 @@ app.post('/api/stripe', function (req, res, next) {
 
 app.post('/api/contactEmail', (req, res) => {
   // console.log(req.body);
-  const {
-    contactName,
-    contactEmailAddress,
-    contactSubject,
-    contactMessage,
-  } = req.body;
+  const { contactName, contactEmailAddress, contactSubject, contactMessage } =
+    req.body;
   const mailOptions = {
     from: 'smtp.ethereal.email',
     to: 'christophergarcia.developer@gmail.com',
